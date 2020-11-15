@@ -3,9 +3,13 @@ import { Link } from "react-scroll";
  // SCSS
 import './navbar.scss';
 // Assets
-import LogoImg from '../../assets/navbar/logo.gif';
-import MobileMenuIcon from '../../assets/navbar/mobile-menu.svg';
+import LogoImg from '../../assets/navbar/logo-CannValue.png';
+import MobileMenuIcon from '../../assets/navbar/mobile-menu.svg'
+import NavBarContent from '../../constants/navbar'
 
+const content = {
+  NavbarContent: NavBarContent
+}
 const desktopNav = (props) => (
   <nav className={`Navbar ${!props.userIsScrolled ? "extraLargeNavbar" : ""}`}>
     <div className="wrapper flex-s-between">
@@ -20,23 +24,23 @@ const desktopNav = (props) => (
       <div className="desktop__menu">
         <ul className="flex-s-between">
           <li>
-            <Link activeClass="active-link" to="portfolio" spy={true} smooth={true} offset={-70} duration={500}>
-              WORK
-            </Link>
-          </li>
-          <li>
-            <Link activeClass="active-link" to="about" spy={true} smooth={true} offset={-70} duration={500}>
-              ABOUT
+            <Link class={NavBarContent.menuItem1} activeClass="active-link" to="portfolio" spy={true} smooth={true} offset={-70} duration={500}>
+            { content.NavbarContent.product }
             </Link>
           </li>
           <li>
             <Link activeClass="active-link" to="blog" spy={true} smooth={true} offset={-70} duration={500}>
-              BLOG
+              { content.NavbarContent.about}
+            </Link>
+          </li>
+          <li>
+            <Link activeClass="active-link" to="about" spy={true} smooth={true} offset={-70} duration={500}>
+              { content.NavbarContent.team}
             </Link>
           </li>
           <li>
             <Link activeClass="active-link" to="contact" spy={true} smooth={true} offset={-70} duration={500}>
-              CONTACT
+              { content.NavbarContent.contactUs}
             </Link>
           </li>
         </ul>
@@ -45,4 +49,4 @@ const desktopNav = (props) => (
   </nav>
 );
 
-export default desktopNav;
+export default desktopNav

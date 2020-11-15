@@ -1,9 +1,9 @@
 import React from "react";
 import { Row, Col } from "react-flexbox-grid";
 // SCSS
-import "./hero.scss";
+import "./welcome.scss";
 //Assets
-import HeroImage from '../../assets/hero/hero-image.png';
+import HeroImage from '../../assets/welcome/hero-image.png'
 //Components
 import Button from '../ui-components/button/button';
 
@@ -13,15 +13,16 @@ const hero = () => (
       <Row>
         <Col md={12} lg={6}>
           <div className="hero-info">
-            <h1 className="weight800 font60">Hello!!!</h1>
             <h1 className="weight800 font60">
-              We Are Creative Digital Agency.
+              <span className="cann-blue">Cann</span><span class="cann-yellow">Value</span>
             </h1>
-            <p className="font12">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-              doeiusmod tempor incididunt ut labore et dolore magna aliqua
+            <h1 className="weight800 font20"> 
+              Your top-notch vaporizer cartridges and hardware provider
+            </h1>
+            <p className="font15">
+              specialized in designing, developing and manufacturing high-end cannabis vaping devices for licensed producers 
             </p>
-            <Button label="SEND MESSAGE" target={"contact"} />
+            <Button label="Contact Us" target={"contact"} />
           </div>
         </Col>
         <Col md={12} lg={6}>

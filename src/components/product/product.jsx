@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col } from "react-flexbox-grid";
 import Masonry from "react-masonry-css";
 //Scss
-import "./portfolio.scss";
+import "./product.scss";
 //Assets
 import Arrow from "../../assets/portfolio/arrow.svg";
 import Preview1 from "../../assets/portfolio/project01/preview.png";
@@ -145,7 +145,7 @@ class Portfolio extends React.Component {
     return (
       <div id="portfolio">
         <div className="wrapper">
-          <Title title="WORK SHOWCASE." />
+          <Title title="PRODUCT LIST" />
           <Row>
             <Col xs={12} sm={12} md={8} lg={9}>
               <div className="portfolio__nav">
@@ -157,16 +157,19 @@ class Portfolio extends React.Component {
                     className={this.state.pickedFilter === "branding" ? "portfolio__nav-active font12" : "font12"}
                     onClick={() => this.filterGallery("branding")}
                   >
-                    BRANDING
+                    Disposable
                   </li>
                   <li
                     className={this.state.pickedFilter === "illustrations" ? "portfolio__nav-active font12" : "font12"}
                     onClick={() => this.filterGallery("illustrations")}
                   >
-                    ILLUSTRATIONS
+                    Cartridges
                   </li>
                   <li className={this.state.pickedFilter === "web" ? "portfolio__nav-active font12" : "font12"} onClick={() => this.filterGallery("web")}>
-                    WEB
+                    Pod
+                  </li>
+                  <li className={this.state.pickedFilter === "web" ? "portfolio__nav-active font12" : "font12"} onClick={() => this.filterGallery("web")}>
+                    Battery
                   </li>
                 </ul>
               </div>
@@ -183,7 +186,7 @@ class Portfolio extends React.Component {
             {projectsRender}
           </Masonry>
           <Row className="flex-center padding40">
-            <Button label="HAVE WORK FOR US?" target={"contact"} />
+            <Button label="Book an Appointment" target={"contact"} />
           </Row>
         </div>
       </div>

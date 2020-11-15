@@ -5,11 +5,12 @@ import './style/App.scss';
 import DesktopNav from './components/navbar/desktop-nav';
 import MobileNav from './components/navbar/mobile-nav';
 import Backdrop from "./components/navbar/backdrop";
-import Hero from './components/hero/hero';
-import Portfolio from "./components/portfolio/portfolio";
+import Welcome from './components/welcome/welcome';
+import Product from "./components/product/product";
+import Banner from './components/banner/banner'
 import Partners from "./components/partners/partners";
-import About from "./components/about/about";
-import Blog from "./components/blog/blog";
+import Team from "./components/about/about";
+import About from "./components/blog/blog";
 import Contact from "./components/contact/contact";
 import Footer from "./components/footer/footer";
  
@@ -67,11 +68,12 @@ class App extends React.Component {
           userIsScrolled={this.state.userIsScrolled}
           mobileMenuOpen={this.mobileMenuOpen}
         />
-        <Hero />
-        <Portfolio />
+        <Banner />
+        <Welcome />
+        <Product />
         <Partners />
         <About />
-        <Blog />
+        <Team />
         <Contact />
         <Footer />
       </div>

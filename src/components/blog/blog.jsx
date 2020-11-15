@@ -106,9 +106,13 @@ class Blog extends React.Component {
     return (
       <div className="blog" id="blog">
         <div className="wrapper">
-          <Title title="OUR BLOG." />
-          <p className="font12">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt<br></br>ut labore et dolore magna aliqua.
+          <Title title="About CannValue" />
+          <p className="font20">
+          CannValue is specialized in designing, developing and manufacturing high-end cannabis vaping devices for licensed producers. All CannValue products feature proprietary technology.  A 360˚ ceramic heating coil, continuous saturation, uniform heating, no burning, trusted industry-wide to deliver optimal vaping experience. 
+          </p>
+          <br />
+          <p className="font20">
+          CannValue consists of an exceptional Canadian team of hardware and software backgrounds in consumer technology and healthcare. We are committed to deliver on our vision.
           </p>
           <div className="padding30">
             <Swiper {...params}>{storiesRender}</Swiper>

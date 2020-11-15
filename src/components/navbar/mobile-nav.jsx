@@ -1,10 +1,11 @@
-import React from "react";
-import { Link } from "react-scroll";
+import React from "react"
+import { Link } from "react-scroll"
 // SCSS
-import "./navbar.scss";
+import "./navbar.scss"
 // Assets
-import CloseIcons from '../../assets/navbar/mobile-close.svg';
-import Logo from "../../assets/navbar/logo-yellow.svg";
+import CloseIcons from '../../assets/navbar/mobile-close.svg'
+import Logo from "../../assets/navbar/logo-yellow.svg"
+import NavbarContent from "../../constants/navbar"
 
 const mobileNav = (props) => (
   <div className={`mobile__navbar ${props.isOpen ? "mobile__open" : ""}`}>
@@ -35,7 +36,7 @@ const mobileNav = (props) => (
             duration={500}
             onClick={props.closeMobileMenu}
           >
-            WORK
+            {NavbarContent.menuItem1}
           </Link>
         </li>
         <li className="flex-center">
