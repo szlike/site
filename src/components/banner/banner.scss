@@ -1,1 +1,19 @@
-@import '../../style/App.scss'
+@import '../../style/App.scss';
+
+
+// .carousell-img {
+//     max-height: 600px;
+// }
+.banner-carousell {
+    padding-top: 140px;
+
+    .awssld__wrapper {
+        height: 450px;
+    }
+
+    .awssld__bullets {
+        z-index: 9999;
+        bottom: 10px;
+    }
+}
+

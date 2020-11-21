@@ -4,13 +4,14 @@ import Masonry from "react-masonry-css";
 //Scss
 import "./product.scss";
 //Assets
-import Arrow from "../../assets/portfolio/arrow.svg";
-import Preview1 from "../../assets/portfolio/project01/preview.png";
-import Preview2 from "../../assets/portfolio/project02/preview.png";
-import Preview3 from "../../assets/portfolio/project03/preview.png";
-import Preview4 from "../../assets/portfolio/project04/preview.png";
-import Preview5 from "../../assets/portfolio/project05/preview.png";
-import Preview6 from "../../assets/portfolio/project06/preview.png";
+import Arrow from "../../assets/product/arrow.svg";
+import Disposable1 from "../../assets/product/disposable/1-370x300.png";
+import Disposable2 from "../../assets/product/disposable/2-370x500.png";
+import Pod2 from "../../assets/product/pod/1-370x300.png";
+import Pod1 from "../../assets/product/pod/pod-2.png";
+import Cartridge1 from "../../assets/product/cartridge/cartridge-1.png";
+import Cartridge2 from "../../assets/product/cartridge/cartridge-2.png";
+import Battery1 from "../../assets/product/battery/battery-1.jpg";
 //Components
 import Button from "../ui-components/button/button";
 import Title from "../ui-components/title/title";
@@ -24,39 +25,45 @@ class Portfolio extends React.Component {
       projects: [
         {
           id: "1",
-          preview: Preview1,
-          title: "Lamp",
-          tag: "branding",
+          preview: Disposable1,
+          title: "Disposable1",
+          tag: "disposable",
         },
         {
           id: "2",
-          preview: Preview2,
-          title: "Smartwatch",
-          tag: "web",
+          preview: Pod2,
+          title: "Pod2",
+          tag: "pod",
         },
         {
           id: "3",
-          preview: Preview3,
-          title: "Speakerphone",
-          tag: "illustrations",
+          preview: Battery1,
+          title: "Battery1",
+          tag: "battery",
         },
         {
           id: "4",
-          preview: Preview4,
-          title: "Sneakers",
-          tag: "web",
+          preview: Cartridge1,
+          title: "Cartridge1",
+          tag: "cartridges",
         },
         {
           id: "5",
-          preview: Preview5,
-          title: "Label",
-          tag: "illustrations",
+          preview: Pod1,
+          title: "Pod1",
+          tag: "pod",
         },
         {
           id: "6",
-          preview: Preview6,
-          title: "lemons",
-          tag: "branding",
+          preview: Disposable2,
+          title: "Disposable2",
+          tag: "disposable",
+        },
+        {
+          id: "7",
+          preview: Cartridge2,
+          title: "Cartridge2",
+          tag: "cartridges",
         },
       ],
       // PORTFOLIO GALLERY WILL LOAD THIS AFTER FUNCTION "filterGallery" FINISH FILTERING
@@ -88,9 +95,9 @@ class Portfolio extends React.Component {
 
   // FILTER DROP DOWN HOVER MENU FUNCTION
   filterMenuHover = (event) => {
-    if(event) {
+    if (event) {
       this.setState({ filterMenuActive: true });
-    }else {
+    } else {
       this.setState({ filterMenuActive: false });
     }
   }
@@ -104,11 +111,11 @@ class Portfolio extends React.Component {
 
     if (filter === "NEWEST") {
       result = projectsArr.sort((a, b) => (a.id > b.id ? 1 : -1));
-    }else if (filter === "OLDEST") {
+    } else if (filter === "OLDEST") {
       result = projectsArr.sort((a, b) => (a.id > b.id ? 1 : -1)).reverse();
     }
 
-    this.setState({ filterResult: result});
+    this.setState({ filterResult: result });
   }
 
   // RENDER
@@ -129,7 +136,7 @@ class Portfolio extends React.Component {
     };
     // PORTFOLIO FILTER DROPDOWN MENY RENDER
     let filterDroppDown = null;
-    if(this.state.filterMenuActive) {
+    if (this.state.filterMenuActive) {
       filterDroppDown = (
         <div className="portfolio__filter-menu shadow">
           <p className="font12" onClick={() => this.filterDropDownHandler("NEWEST")}>
@@ -150,25 +157,28 @@ class Portfolio extends React.Component {
             <Col xs={12} sm={12} md={8} lg={9}>
               <div className="portfolio__nav">
                 <ul>
-                  <li className={this.state.pickedFilter === "all" ? "portfolio__nav-active font12" : "font12"} onClick={() => this.filterGallery("all")}>
+                  <li className={this.state.pickedFilter === "all" ? "portfolio__nav-active font12" : "font12"} 
+                  onClick={() => this.filterGallery("all")}>
                     ALL
                   </li>
                   <li
-                    className={this.state.pickedFilter === "branding" ? "portfolio__nav-active font12" : "font12"}
-                    onClick={() => this.filterGallery("branding")}
+                    className={this.state.pickedFilter === "disposable" ? "portfolio__nav-active font12" : "font12"}
+                    onClick={() => this.filterGallery("disposable")}
                   >
                     Disposable
                   </li>
                   <li
-                    className={this.state.pickedFilter === "illustrations" ? "portfolio__nav-active font12" : "font12"}
-                    onClick={() => this.filterGallery("illustrations")}
+                    className={this.state.pickedFilter === "cartridges" ? "portfolio__nav-active font12" : "font12"}
+                    onClick={() => this.filterGallery("cartridges")}
                   >
                     Cartridges
                   </li>
-                  <li className={this.state.pickedFilter === "web" ? "portfolio__nav-active font12" : "font12"} onClick={() => this.filterGallery("web")}>
+                  <li className={this.state.pickedFilter === "pod" ? "portfolio__nav-active font12" : "font12"} 
+                  onClick={() => this.filterGallery("pod")}>
                     Pod
                   </li>
-                  <li className={this.state.pickedFilter === "web" ? "portfolio__nav-active font12" : "font12"} onClick={() => this.filterGallery("web")}>
+                  <li className={this.state.pickedFilter === "battery" ? "portfolio__nav-active font12" : "font12"} 
+                  onClick={() => this.filterGallery("battery")}>
                     Battery
                   </li>
                 </ul>

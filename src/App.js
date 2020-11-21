@@ -9,8 +9,8 @@ import Welcome from './components/welcome/welcome';
 import Product from "./components/product/product";
 import Banner from './components/banner/banner'
 import Partners from "./components/partners/partners";
-import Team from "./components/about/about";
-import About from "./components/blog/blog";
+import Team from "./components/team/team";
+import About from "./components/about/about";
 import Contact from "./components/contact/contact";
 import Footer from "./components/footer/footer";
  
@@ -69,11 +69,11 @@ class App extends React.Component {
           mobileMenuOpen={this.mobileMenuOpen}
         />
         <Banner />
+        <Partners />
         <Welcome />
         <Product />
-        <Partners />
         <About />
-        <Team />
+        {/* <Team /> */}
         <Contact />
         <Footer />
       </div>
