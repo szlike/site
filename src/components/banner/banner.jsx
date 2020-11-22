@@ -4,12 +4,41 @@ import BannerImage1 from "../../assets/banner/pen-with-cann.jpg"
 import BannerImage2 from "../../assets/banner/pen-with-apple.jpg"
 import BannerImage3 from "../../assets/banner/man-smoking.jpg"
 import AwesomeSlider from 'react-awesome-slider';
-import CoreStyles from 'react-awesome-slider/src/core/styles.scss';
 import 'react-awesome-slider/dist/styles.css';
-import AnimationStyles from 'react-awesome-slider/src/styled/fold-out-animation/fold-out-animation.scss';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
 
+import { 
+	Provider,
+	Link,
+	withNavigationContext,
+	withNavigationHandlers
+  } from "react-awesome-slider/dist/navigation";
+
+// Wrapp the AwesomeSlider component with the navigationHandlers
+const NavigationSlider = withNavigationHandlers(AwesomeSlider);
+
 const AutoplaySlider = withAutoplay(AwesomeSlider);
+
+// Create an AwesomeSlider instance with some content
+const Slider = () => {
+	return (
+	  <NavigationSlider
+		className="awesome-slider banner-carousell"
+		media={[
+		  {
+			slug: "page-one",
+			className: "page-one",
+			children: () => <p>Page One</p>
+		  },
+		  {
+			slug: "page-two",
+			className: "page-two",
+			children: () => <p>Page Two</p>
+		  }
+		]}
+	  />
+	 )
+}
 
 const banner = () => (
 		<AutoplaySlider 
@@ -26,4 +55,4 @@ const banner = () => (
 		</AutoplaySlider>
 )
 
-export default banner
+export default Slider
