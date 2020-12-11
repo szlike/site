@@ -108,11 +108,11 @@ class Blog extends React.Component {
         <div className="wrapper">
           <Title title="About CannValue" />
           <p className="font20">
-          CannValue is specialized in designing, developing and manufacturing high-end cannabis vaping devices for licensed producers. All CannValue products feature proprietary technology.  A 360˚ ceramic heating coil, continuous saturation, uniform heating, no burning, trusted industry-wide to deliver optimal vaping experience. 
+          Headquartered in Canada, backed by top-tier vaping device manufacturers, CannValue serves the cannabis industry by providing wholesale high-end vaporizer cartridges, power supplies and disposables to licensed producers. 
           </p>
           <br />
           <p className="font20">
-          CannValue consists of an exceptional Canadian team of hardware and software backgrounds in consumer technology and healthcare. We are committed to deliver on our vision.
+          CannValue sets and adheres to the highest standards of quality and reliability. Our team is composed of local talents and professionals with many years of industry experience that focuses in cannabis, tobacco, and pharmaceuticals.
           </p>
           {/* <div className="padding30">
             <Swiper {...params}>{storiesRender}</Swiper>

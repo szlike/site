@@ -16,11 +16,13 @@ const hero = () => (
             <h1 className="weight800 font60">
               <span className="cann-blue">Cann</span><span class="cann-yellow">Value</span>
             </h1>
-            <h1 className="weight800 font20"> 
+            {/* <h1 className="weight800 font20"> 
               Your top-notch vaporizer cartridges and hardware provider
-            </h1>
+            </h1> */}
             <p className="font15">
-              specialized in designing, developing and manufacturing high-end cannabis vaping devices for licensed producers 
+            CannValue is specialized in designing, developing and manufacturing high-end cannabis vaping devices for licensed producers. All CannValue products feature proprietary technology.
+            <br />
+            A 360˚ ceramic heating coil, continuous saturation, uniform heating, no burning, trusted industry-wide to deliver optimal vaping experience.
             </p>
             <Button label="Contact Us" target={"contact"} />
           </div>

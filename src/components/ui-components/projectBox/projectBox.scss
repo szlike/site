@@ -25,7 +25,7 @@
         text-transform: uppercase;
       }
     }
-    .portfolio__hover-info:hover {
+    .portfolio__hover-info:hover, .portfolio__hover-info.no-hover {
       opacity: 1;
     }
   }

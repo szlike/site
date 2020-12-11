@@ -9,10 +9,11 @@ import Welcome from './components/welcome/welcome';
 import Product from "./components/product/product";
 import Banner from './components/banner/banner'
 import Partners from "./components/partners/partners";
-import Team from "./components/team/team";
+// import Team from "./components/team/team";
 import About from "./components/about/about";
 import Contact from "./components/contact/contact";
-import Footer from "./components/footer/footer";
+import Footer from "./components/footer/footer"
+import 'bootstrap/dist/css/bootstrap.min.css';
  
 class App extends React.Component {
   state = {
@@ -68,7 +69,9 @@ class App extends React.Component {
           userIsScrolled={this.state.userIsScrolled}
           mobileMenuOpen={this.mobileMenuOpen}
         />
-        <Banner />
+        <Banner 
+          userIsScrolled={this.state.userIsScrolled}
+        />
         <Partners />
         <Welcome />
         <Product />

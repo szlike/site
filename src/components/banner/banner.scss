@@ -1,19 +1,70 @@
 @import '../../style/App.scss';
 
+.extraLargePaddingTop {
+    padding-top: 29px;
+}
+.carousel-component {
+    margin-top: 120px;
+    .carousel  {
+        .slider {
+            .legend {
+                opacity: 1;
+                border-radius: 15px;
 
-// .carousell-img {
-//     max-height: 600px;
-// }
-.banner-carousell {
-    padding-top: 140px;
+                span {
+                    font-weight: bold;
+                    text-align: center;
+                }
+                p {
+                    text-align: left;
+                    font-weight: normal;
+                }
+            }
+            .first {
+                background: $cann-yellow-color;
+                color: $cann-blue-color;
+            }
+            .third {
+                background: $cann-blue-color;
+                color: $cann-yellow-color;
+            }
+        }
 
-    .awssld__wrapper {
-        height: 450px;
-    }
+        .slide {
+            background: none;
+        }
 
-    .awssld__bullets {
-        z-index: 999;
-        bottom: 10px;
+        p.carousel-status {
+            display: none;
+        }
+        // ul.control-dots {
+        //     display: none;
+        // }
+
+        div.thumbs-wrapper.axis-vertical {
+            display: none;
+        }
     }
 }
+
+@media only screen and (min-width: $laptop-width) {
+    .carousel-component {
+        .carousel {
+            .slider {
+                .legend {
+                    bottom: 100px;
+                    width: 40%;
+                    height: 35%;
+                }
+
+                span {
+                    font-size: 32px;
+                }
+            }
+        }
+
+    }
+}
+
+
 

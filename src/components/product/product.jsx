@@ -5,8 +5,12 @@ import Masonry from "react-masonry-css";
 import "./product.scss";
 //Assets
 import Arrow from "../../assets/product/arrow.svg";
-import Disposable1 from "../../assets/product/disposable/1-370x300.png";
-import Disposable2 from "../../assets/product/disposable/2-370x500.png";
+import Disposable1 from "../../assets/product/disposable/CVD-1915-blue.png";
+
+import { DisposableProducts } from '../../productsContent/disposable/index'
+
+import { CartridgeProducts } from '../../productsContent/cartridge/index'
+
 import Pod2 from "../../assets/product/pod/1-370x300.png";
 import Pod1 from "../../assets/product/pod/pod-2.png";
 import Cartridge1 from "../../assets/product/cartridge/cartridge-1.png";
@@ -16,19 +20,44 @@ import Battery1 from "../../assets/product/battery/battery-1.jpg";
 import Button from "../ui-components/button/button";
 import Title from "../ui-components/title/title";
 import ProjectBox from "../ui-components/projectBox/projectBox";
+import ProductPageModal from "../ui-components/productPageModal/productPageModal"
 
 class Portfolio extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // PORTFOLIO PROJECTS
-      projects: [
+      catalogue: [
         {
           id: "1",
           preview: Disposable1,
-          title: "Disposable1",
+          title: "Disposable",
           tag: "disposable",
+          isCatalogue: true
         },
+        {
+          id: "2",
+          preview: Pod1,
+          title: "Pods",
+          tag: "pod",
+          isCatalogue: true
+        },
+        {
+          id: "3",
+          preview: Cartridge1,
+          title: "Cartridges",
+          tag: "cartridge",
+          isCatalogue: true
+        },
+        {
+          id: "4",
+          preview: Battery1,
+          title: "Battery",
+          tag: "battery",
+          isCatalogue: true
+        },
+      ],
+      // PORTFOLIO PROJECTS
+      products: [
         {
           id: "2",
           preview: Pod2,
@@ -36,52 +65,41 @@ class Portfolio extends React.Component {
           tag: "pod",
         },
         {
-          id: "3",
+          id: "4",
           preview: Battery1,
           title: "Battery1",
           tag: "battery",
         },
         {
-          id: "4",
-          preview: Cartridge1,
-          title: "Cartridge1",
-          tag: "cartridges",
-        },
-        {
-          id: "5",
+          id: "7",
           preview: Pod1,
           title: "Pod1",
-          tag: "pod",
+          tag: "pod"
         },
-        {
-          id: "6",
-          preview: Disposable2,
-          title: "Disposable2",
-          tag: "disposable",
-        },
-        {
-          id: "7",
-          preview: Cartridge2,
-          title: "Cartridge2",
-          tag: "cartridges",
-        },
+        ...CartridgeProducts,
+        ...DisposableProducts
       ],
       // PORTFOLIO GALLERY WILL LOAD THIS AFTER FUNCTION "filterGallery" FINISH FILTERING
       filterResult: null,
       pickedFilter: "all",
       filterMenuActive: false,
-      pickedFilterDropdown: "NEWEST"
-    };
+      pickedFilterDropdown: "NEWEST",
+      isProductPageModalShow: false,
+      productPageData: {
+        title: '',
+        images: []
+      }
+    }
   }
 
   // FIRST LOAD
   componentDidMount() {
-    this.filterGallery("all");
+    this.setState({filterResult: this.state.catalogue, pickedFilter: 'all'})
   }
 
   //FILTER PORTFOLIO FUNCTION
   filterGallery = (target) => {
-    let projectsArr = [...this.state.projects];
+    let projectsArr = [...this.state.products];
     let result;
 
     if (target !== "all") {
@@ -91,7 +109,13 @@ class Portfolio extends React.Component {
     }
 
     this.setState({ filterResult: result, pickedFilter: target, pickedFilterDropdown: "NEWEST" });
-  };
+  }
+
+  //display catalogue list
+  displayCatelogueList = (target)=> {
+    let displayArr = [...this.state.catalogue]
+    this.setState( { filterResult: displayArr, pickedFilter: target, pickedFilterDropdown: "NEWEST" })
+  }
 
   // FILTER DROP DOWN HOVER MENU FUNCTION
   filterMenuHover = (event) => {
@@ -118,13 +142,39 @@ class Portfolio extends React.Component {
     this.setState({ filterResult: result });
   }
 
+  handleClickonProductBox(type, isCatalogue, id){
+    this.setState({filterResult: type})
+    if (isCatalogue){
+      this.filterGallery(type)
+    } else {
+      this.openProductPage(id)
+      this.filterGallery(type)
+    }
+  }
+
+  openProductPage(id){
+    if (!this.state.isProductPageModalShow){
+      this.setState({
+        isProductPageModalShow: true,
+        productPageData: this.state.products.find(product=>product.id===id).productPageData
+      })
+    }
+  }
+
+  setShow(value) {
+    this.setState({isProductPageModalShow: value})
+  }
+
   // RENDER
   render() {
     // PORTFOLIO GALLERY RENDER
     let projectsRender = null;
     if (this.state.filterResult) {
+      const noHover = this.state.pickedFilter === 'all' ? 'no-hover' : '' 
       projectsRender = this.state.filterResult.map((project) => (
-        <ProjectBox preview={project.preview} key={project.id} title={project.title} tag={project.tag} />
+        <div onClick={ ()=>this.handleClickonProductBox(project.tag, project.isCatalogue, project.id) }>
+          <ProjectBox noHover={noHover} preview={project.preview} key={project.id} title={project.title} tag={project.tag} />
+        </div>
       ));
     }
     // PORTFOLIO GALLERY BREAKPOINTS
@@ -152,13 +202,19 @@ class Portfolio extends React.Component {
     return (
       <div id="portfolio">
         <div className="wrapper">
+          <ProductPageModal
+            className='product-page-modal'
+            setShow={this.setShow.bind(this)}
+            show={this.state.isProductPageModalShow}
+            data={this.state.productPageData}
+           ></ProductPageModal> 
           <Title title="PRODUCT LIST" />
           <Row>
             <Col xs={12} sm={12} md={8} lg={9}>
               <div className="portfolio__nav">
                 <ul>
                   <li className={this.state.pickedFilter === "all" ? "portfolio__nav-active font12" : "font12"} 
-                  onClick={() => this.filterGallery("all")}>
+                  onClick={() => this.displayCatelogueList("all")}>
                     ALL
                   </li>
                   <li
@@ -168,8 +224,8 @@ class Portfolio extends React.Component {
                     Disposable
                   </li>
                   <li
-                    className={this.state.pickedFilter === "cartridges" ? "portfolio__nav-active font12" : "font12"}
-                    onClick={() => this.filterGallery("cartridges")}
+                    className={this.state.pickedFilter === "cartridge" ? "portfolio__nav-active font12" : "font12"}
+                    onClick={() => this.filterGallery("cartridge")}
                   >
                     Cartridges
                   </li>
