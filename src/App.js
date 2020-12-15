@@ -13,7 +13,7 @@ import Partners from "./components/partners/partners";
 import About from "./components/about/about";
 import Contact from "./components/contact/contact";
 import Footer from "./components/footer/footer"
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
  
 class App extends React.Component {
   state = {
@@ -72,9 +72,9 @@ class App extends React.Component {
         <Banner 
           userIsScrolled={this.state.userIsScrolled}
         />
-        <Partners />
-        <Welcome />
         <Product />
+        {/* <Partners /> */}
+        {/* <Welcome /> */}
         <About />
         {/* <Team /> */}
         <Contact />

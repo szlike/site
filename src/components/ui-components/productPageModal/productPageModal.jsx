@@ -1,10 +1,8 @@
 import React from "react";
 // Scss
 import "./productPageModal.scss"
-import { Slide } from 'react-slideshow-image'
+import { Slide, Zoom } from 'react-slideshow-image'
 import {Modal, Row, Col, Container} from "react-bootstrap"
-import 'react-slideshow-image/dist/styles.css'
-
 
 
 const getSlideshow = (images) => {
@@ -30,6 +28,31 @@ const getSlideshow = (images) => {
   )
 }
 
+const zoomInProperties = {
+  indicators: true,
+  scale: 1.4,
+  autoplay: false
+}
+
+const getZoomshow = (images) => {
+  return (
+    Array.isArray(images) && images.length > 0 ?
+      <Zoom 
+      {...zoomInProperties}
+      className="product-slide"
+      > 
+        {
+          images.map( (img, index)=>(
+            <div key={index} style={{width: "100%"}}>
+                <img style={{ objectFit: "cover", width: "100%" }} src={img} />
+            </div>
+          )) 
+        }
+      </Zoom>
+    : null
+  )
+}
+
 const productPageModal= (props) => {
   const { show, setShow, data } = props
   return show ? (
@@ -46,16 +69,17 @@ const productPageModal= (props) => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Container>
             <Row>
-              <Col>
-                  {getSlideshow(data.images)}
+              <Col className="product-image">
+                  {/* {getSlideshow(data.images)} */}
+                  {getZoomshow(data.images)}
               </Col>
               <Col className="product-content">
+                <div class="product-html">
                   {data.htmlContent()}
+                </div>
               </Col>
             </Row>
-          </Container>
         </Modal.Body>
       </Modal>
     </>

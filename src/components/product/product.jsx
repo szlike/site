@@ -3,19 +3,22 @@ import { Row, Col } from "react-flexbox-grid";
 import Masonry from "react-masonry-css";
 //Scss
 import "./product.scss";
+import 'react-slideshow-image/dist/styles.css'
+
 //Assets
 import Arrow from "../../assets/product/arrow.svg";
-import Disposable1 from "../../assets/product/disposable/CVD-1915-blue.png";
+import PodDisposable from "../../assets/product/pod-disposable/pod-disposable-catelogue.png"
+import PenDisposable from "../../assets/product/pen-disposable/pen-disposable-catelogue.png"
+import Vaporizer from "../../assets/product/vaporizer/vaporizer-catelogue.png";
+import Cartridge from "../../assets/product/cartridge/cartridge-catelogue.png";
+import Battery from "../../assets/product/battery/battery-catelogue.png";
 
-import { DisposableProducts } from '../../productsContent/disposable/index'
-
+import { PodDisposableProducts } from '../../productsContent/pod-disposable/index'
+import { PenDisposableProducts } from '../../productsContent/pen-disposable/index'
 import { CartridgeProducts } from '../../productsContent/cartridge/index'
+import { VaporizerProducts } from '../../productsContent/vaporizer/index'
+import { BatteryProducts } from '../../productsContent/battery/index'
 
-import Pod2 from "../../assets/product/pod/1-370x300.png";
-import Pod1 from "../../assets/product/pod/pod-2.png";
-import Cartridge1 from "../../assets/product/cartridge/cartridge-1.png";
-import Cartridge2 from "../../assets/product/cartridge/cartridge-2.png";
-import Battery1 from "../../assets/product/battery/battery-1.jpg";
 //Components
 import Button from "../ui-components/button/button";
 import Title from "../ui-components/title/title";
@@ -29,55 +32,47 @@ class Portfolio extends React.Component {
       catalogue: [
         {
           id: "1",
-          preview: Disposable1,
-          title: "Disposable",
-          tag: "disposable",
+          preview: PenDisposable,
+          title: "Disposable (Pen Style)",
+          tag: "pen-disposable",
           isCatalogue: true
         },
         {
           id: "2",
-          preview: Pod1,
-          title: "Pods",
-          tag: "pod",
+          preview: PodDisposable,
+          title: "Disposable (Pod Style)",
+          tag: "pod-disposable",
           isCatalogue: true
         },
         {
           id: "3",
-          preview: Cartridge1,
+          preview: Cartridge,
           title: "Cartridges",
           tag: "cartridge",
           isCatalogue: true
         },
         {
           id: "4",
-          preview: Battery1,
-          title: "Battery",
+          preview: Vaporizer,
+          title: "Dry Herb Vaporizers",
+          tag: "vaporizer",
+          isCatalogue: true
+        },
+        {
+          id: "5",
+          preview: Battery,
+          title: "Batteries",
           tag: "battery",
           isCatalogue: true
         },
       ],
       // PORTFOLIO PROJECTS
       products: [
-        {
-          id: "2",
-          preview: Pod2,
-          title: "Pod2",
-          tag: "pod",
-        },
-        {
-          id: "4",
-          preview: Battery1,
-          title: "Battery1",
-          tag: "battery",
-        },
-        {
-          id: "7",
-          preview: Pod1,
-          title: "Pod1",
-          tag: "pod"
-        },
+        ...BatteryProducts,
+        ...VaporizerProducts,
         ...CartridgeProducts,
-        ...DisposableProducts
+        ...PodDisposableProducts,
+        ...PenDisposableProducts,
       ],
       // PORTFOLIO GALLERY WILL LOAD THIS AFTER FUNCTION "filterGallery" FINISH FILTERING
       filterResult: null,
@@ -218,10 +213,20 @@ class Portfolio extends React.Component {
                     ALL
                   </li>
                   <li
-                    className={this.state.pickedFilter === "disposable" ? "portfolio__nav-active font12" : "font12"}
-                    onClick={() => this.filterGallery("disposable")}
+                    className={this.state.pickedFilter === "pen-disposable" ? "portfolio__nav-active font12" : "font12"}
+                    onClick={() => this.filterGallery("pen-disposable")}
                   >
-                    Disposable
+                    Pen-style Disposable
+                  </li>
+                  <li
+                    className={this.state.pickedFilter === "pod-disposable" ? "portfolio__nav-active font12" : "font12"}
+                    onClick={() => this.filterGallery("pod-disposable")}
+                  >
+                    Pod-style Disposable
+                  </li>
+                  <li className={this.state.pickedFilter === "vaporizer" ? "portfolio__nav-active font12" : "font12"} 
+                  onClick={() => this.filterGallery("vaporizer")}>
+                    Dry Herb Vaporizers
                   </li>
                   <li
                     className={this.state.pickedFilter === "cartridge" ? "portfolio__nav-active font12" : "font12"}
@@ -229,13 +234,9 @@ class Portfolio extends React.Component {
                   >
                     Cartridges
                   </li>
-                  <li className={this.state.pickedFilter === "pod" ? "portfolio__nav-active font12" : "font12"} 
-                  onClick={() => this.filterGallery("pod")}>
-                    Pod
-                  </li>
                   <li className={this.state.pickedFilter === "battery" ? "portfolio__nav-active font12" : "font12"} 
                   onClick={() => this.filterGallery("battery")}>
-                    Battery
+                    Batteries
                   </li>
                 </ul>
               </div>

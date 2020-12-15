@@ -1,9 +1,6 @@
 @import '../../../style/App.scss';
 
 
-.fade.modal.show {
-    margin: 0 0;
-}
 .modal-dialog.product-page-modal {
     min-width: 95%;
     z-index: 999;
@@ -26,6 +23,11 @@
     background: #efefef;
     text-align: center;
 }
+
+.modal {
+    margin: 0 !important;
+    z-index: 9999 !important;
+}
 .product-page-modal {
     .product-image {
         background-position: center;
@@ -41,15 +43,35 @@ button.nav.default-nav {
 .modal-body {
     min-height: 400px;
 }
-@media screen and (min-width: 576px) {
+
+.modal-product-h3 {
+    font-size: 30px;
+    color: $cann-yellow-color;
+}
+.modal-product-h4 {
+    font-size: 20px;
+    color: $cann-blue-color;
+    margin-bottom: 10px;
+}
+  
+
+
+@media screen and (min-width: 900px) {
     .product-page-modal {
         .product-content {
             position: absolute;
-            right: -20%;
         }
         .product-slide {
             max-width: 50%;
         }
+        .product-html {
+            float: right;
+            margin: 0 10%;
+            ul {
+                text-align: left;
+            }
+        }
+
         // .product-image {
             
         // }

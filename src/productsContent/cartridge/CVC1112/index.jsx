@@ -3,10 +3,10 @@ import Cartridge1 from "./1.png"
 import Cartridge2 from "./2.png"
 import Cartridge3 from "./3.png"
 import Cartridge4 from "./4.png"
-import Cartridge5 from "./5.png"
+// import Cartridge5 from "./5.png"
 import Cartridge6 from "./6.png"
-import Cartridge7 from "./7.png"
-import Cartridge8 from "./8.png"
+// import Cartridge7 from "./7.png"
+// import Cartridge8 from "./8.png"
 
 
 export const Images = [
@@ -14,15 +14,15 @@ export const Images = [
     Cartridge2,
     Cartridge3,
     Cartridge4,
-    Cartridge5,
+    // Cartridge5,
     Cartridge6,
-    Cartridge7,
-    Cartridge8,
+    // Cartridge7,
+    // Cartridge8,
 ]
 export const HtmlContent =() => (
     <div>
-        <h3>CVC1112</h3>
-        <h4 style={ {'text-decoration': 'underline'} }>Proprietary Oil Filling Isolation System</h4>
+        <h3 class="modal-product-h3">CVC1112</h3>
+        <h4 class="modal-product-h4" style={ {'text-decoration': 'underline'} }>Proprietary Oil Filling Isolation System</h4>
         <ul>
             <li>Global Exclusive Design</li>
             <li>Using SUS316L Material Central Tube</li>

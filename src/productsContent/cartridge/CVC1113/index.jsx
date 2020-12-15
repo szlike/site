@@ -2,21 +2,21 @@ import React from 'react'
 import Cartridge1 from "./1.png"
 import Cartridge2 from "./2.png"
 import Cartridge3 from "./3.png"
-import Cartridge4 from "./3.png"
+import Cartridge4 from "./4.png"
 import Cartridge5 from "./5.jpg"
 
 
 export const Images = [
     Cartridge1,
     Cartridge2,
-    Cartridge4,
     Cartridge3,
+    Cartridge4,
     Cartridge5
 ]
 export const HtmlContent =() => (
     <div>
-        <h3>CVC1113</h3>
-        <h4 style={ {'text-decoration': 'underline'} }>High Corrosion-resistant Glass Tank</h4>
+        <h3 class="modal-product-h3">CVC1113</h3>
+        <h4 class="modal-product-h4" style={ {'text-decoration': 'underline'} }>High Corrosion-resistant Glass Tank</h4>
         <ul>
             <li>Screw-on Ceramic/Wood/Metal Mouthpiece</li>
             <li>Perfect For Thick Oil</li>
