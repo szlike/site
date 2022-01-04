@@ -3,10 +3,10 @@ import React from "react";
 import "./projectBox.scss";
 
 const projectBox = (props) => (
-  <div className="portfolio__box">
+  <div className="product__box">
     <img src={props.preview} alt="project" />
     <div 
-      className={`portfolio__hover-info ${props.noHover} flex-center`}
+      className={`product__hover-info ${props.noHover} flex-center`}
     >
       <div className="text-center">
         <p className="font30 weight800">{props.title}</p>

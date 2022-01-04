@@ -25,7 +25,13 @@ import Title from "../ui-components/title/title";
 import ProjectBox from "../ui-components/projectBox/projectBox";
 import ProductPageModal from "../ui-components/productPageModal/productPageModal"
 
-class Portfolio extends React.Component {
+
+
+//state 
+
+//prop
+
+class Product extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,7 +41,7 @@ class Portfolio extends React.Component {
           preview: PenDisposable,
           title: "Disposable (Pen Style)",
           tag: "pen-disposable",
-          isCatalogue: true
+          isCatalogue: true,
         },
         {
           id: "2",
@@ -66,7 +72,7 @@ class Portfolio extends React.Component {
           isCatalogue: true
         },
       ],
-      // PORTFOLIO PROJECTS
+      // PRODUCT PROJECTS
       products: [
         ...BatteryProducts,
         ...VaporizerProducts,
@@ -74,7 +80,7 @@ class Portfolio extends React.Component {
         ...PodDisposableProducts,
         ...PenDisposableProducts,
       ],
-      // PORTFOLIO GALLERY WILL LOAD THIS AFTER FUNCTION "filterGallery" FINISH FILTERING
+      // PRODUCT GALLERY WILL LOAD THIS AFTER FUNCTION "filterGallery" FINISH FILTERING
       filterResult: null,
       pickedFilter: "all",
       filterMenuActive: false,
@@ -92,7 +98,7 @@ class Portfolio extends React.Component {
     this.setState({filterResult: this.state.catalogue, pickedFilter: 'all'})
   }
 
-  //FILTER PORTFOLIO FUNCTION
+  //FILTER PRODUCT FUNCTION
   filterGallery = (target) => {
     let projectsArr = [...this.state.products];
     let result;
@@ -162,7 +168,7 @@ class Portfolio extends React.Component {
 
   // RENDER
   render() {
-    // PORTFOLIO GALLERY RENDER
+    // PRODUCT GALLERY RENDER
     let projectsRender = null;
     if (this.state.filterResult) {
       const noHover = this.state.pickedFilter === 'all' ? 'no-hover' : '' 
@@ -172,22 +178,22 @@ class Portfolio extends React.Component {
         </div>
       ));
     }
-    // PORTFOLIO GALLERY BREAKPOINTS
-    const portfolioBreakpoints = {
+    // PRODUCT GALLERY BREAKPOINTS
+    const productBreakpoints = {
       default: 3,
       1100: 3,
       700: 2,
       500: 1,
     };
-    // PORTFOLIO FILTER DROPDOWN MENY RENDER
+    // PRODUCT FILTER DROPDOWN MENY RENDER
     let filterDroppDown = null;
     if (this.state.filterMenuActive) {
       filterDroppDown = (
-        <div className="portfolio__filter-menu shadow">
-          <p className="font12" onClick={() => this.filterDropDownHandler("NEWEST")}>
+        <div className="product__filter-menu shadow">
+          <p className="font14 col-xs-2" onClick={() => this.filterDropDownHandler("NEWEST")}>
             NEWEST
           </p>
-          <p className="font12" onClick={() => this.filterDropDownHandler("OLDEST")}>
+          <p className="font14 col-xs-2" onClick={() => this.filterDropDownHandler("OLDEST")}>
             OLDEST
           </p>
         </div>
@@ -195,7 +201,7 @@ class Portfolio extends React.Component {
     }
 
     return (
-      <div id="portfolio">
+      <div id="product">
         <div className="wrapper">
           <ProductPageModal
             className='product-page-modal'
@@ -206,35 +212,35 @@ class Portfolio extends React.Component {
           <Title title="PRODUCT LIST" />
           <Row>
             <Col xs={12} sm={12} md={8} lg={9}>
-              <div className="portfolio__nav">
+              <div className="product__nav">
                 <ul>
-                  <li className={this.state.pickedFilter === "all" ? "portfolio__nav-active font12" : "font12"} 
+                  <li className={this.state.pickedFilter === "all" ? "product__nav-active font14 col-xs-2" : "font14 col-xs-2"} 
                   onClick={() => this.displayCatelogueList("all")}>
                     ALL
                   </li>
                   <li
-                    className={this.state.pickedFilter === "pen-disposable" ? "portfolio__nav-active font12" : "font12"}
+                    className={this.state.pickedFilter === "pen-disposable" ? "product__nav-active font14 col-xs-2" : "font14 col-xs-2"}
                     onClick={() => this.filterGallery("pen-disposable")}
                   >
                     Pen-style Disposable
                   </li>
                   <li
-                    className={this.state.pickedFilter === "pod-disposable" ? "portfolio__nav-active font12" : "font12"}
+                    className={this.state.pickedFilter === "pod-disposable" ? "product__nav-active font14 col-xs-2" : "font14 col-xs-2"}
                     onClick={() => this.filterGallery("pod-disposable")}
                   >
                     Pod-style Disposable
                   </li>
-                  <li className={this.state.pickedFilter === "vaporizer" ? "portfolio__nav-active font12" : "font12"} 
+                  <li className={this.state.pickedFilter === "vaporizer" ? "product__nav-active font14 col-xs-2" : "font14 col-xs-2"} 
                   onClick={() => this.filterGallery("vaporizer")}>
                     Dry Herb Vaporizers
                   </li>
                   <li
-                    className={this.state.pickedFilter === "cartridge" ? "portfolio__nav-active font12" : "font12"}
+                    className={this.state.pickedFilter === "cartridge" ? "product__nav-active font14 col-xs-2" : "font14 col-xs-2"}
                     onClick={() => this.filterGallery("cartridge")}
                   >
                     Cartridges
                   </li>
-                  <li className={this.state.pickedFilter === "battery" ? "portfolio__nav-active font12" : "font12"} 
+                  <li className={this.state.pickedFilter === "battery" ? "product__nav-active font14 col-xs-2" : "font14 col-xs-2"} 
                   onClick={() => this.filterGallery("battery")}>
                     Batteries
                   </li>
@@ -242,18 +248,18 @@ class Portfolio extends React.Component {
               </div>
             </Col>
             <Col xs={12} sm={12} md={4} lg={3}>
-              <div className="portfolio__filter" onMouseEnter={() => this.filterMenuHover(true)} onMouseLeave={() => this.filterMenuHover(false)}>
-                <p className="font12">{this.state.pickedFilterDropdown} FIRST</p>
+              <div className="product__filter" onMouseEnter={() => this.filterMenuHover(true)} onMouseLeave={() => this.filterMenuHover(false)}>
+                <p className="font14 col-xs-4">{this.state.pickedFilterDropdown} FIRST</p>
                 <img src={Arrow} alt="arrow" />
                 {filterDroppDown}
               </div>
             </Col>
           </Row>
-          <Masonry breakpointCols={portfolioBreakpoints} className="my-masonry-grid" columnClassName="mint__gallery">
+          <Masonry breakpointCols={productBreakpoints} className="my-masonry-grid" columnClassName="mint__gallery">
             {projectsRender}
           </Masonry>
           <Row className="flex-center padding40">
-            <Button label="Book an Appointment" target={"contact"} />
+            <Button label="Contact us" target={"contact"} />
           </Row>
         </div>
       </div>
@@ -261,4 +267,4 @@ class Portfolio extends React.Component {
   }
 }
 
-export default Portfolio;
+export default Product;

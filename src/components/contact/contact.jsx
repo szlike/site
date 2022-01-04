@@ -7,7 +7,7 @@ import ContactInfo from './contactInfo/contactInfo';
 import ContactSocial from './contactInfo/contactSocial';
 import Modal from '../contact-modal/Modal';
 
-import ContactBackground from '../../assets/contact/bg.png';
+import ContactBackground from '../../assets/contact/contactus.png';
 
 class Contact extends React.Component {
   constructor(props) {
@@ -32,25 +32,25 @@ class Contact extends React.Component {
     e.preventDefault();
 
     var template_params = {
-      name: this.state.name,
-      email: this.state.email,
+      from_name: this.state.name,
+      from_email: this.state.email,
       message: this.state.message,
     };
-
-
-
 
     // YOUR EMAIL.JS API KEY IN FORMAT user_xxxxxxxxxxxxxxxxxx
     let API_KEY = "";
 
     // YOUR EMAIL.JS TEMPLATE ID
-    let TEMPLATE_ID = "";
+    let TEMPLATE_ID = "template_hidq425"
+
+    let SERVICE_ID = 'service_4hdhtlc'
+
+    let USER_ID = 'user_oIlXLozpvLJAAtIclHCg7'
 
 
-
-
-    emailjs.send("default_service", TEMPLATE_ID, template_params, API_KEY).then(
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, template_params, USER_ID).then(
       function (response) {
+        debugger
         if (response.status === 200) {
           self.showSuccessModal();
         } else {
@@ -58,6 +58,7 @@ class Contact extends React.Component {
         }
       },
       function (error) {
+        debugger
         self.showErrorModal();
       }
     );
@@ -115,9 +116,7 @@ class Contact extends React.Component {
         <div className="wrapper">
           <Title title="CONTACT US." />
           <p className="font12">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt<br></br>ut labore et dolore magna aliqua.
-          </p>
-
+          Interested in learning more about our services? Our Customer Support Executives take the time to answer any of  your questions and help you make smart decisions that best meet your needs. </p>
           <Row className="padding40">
             <Col md={12} lg={6}>
               <form id="contact-form" onSubmit={this.handleSubmit}>
@@ -142,8 +141,8 @@ class Contact extends React.Component {
               </div>
             </Col>
           </Row>
-          <ContactInfo />
-          <ContactSocial />
+          {/* <ContactInfo /> */}
+          {/* <ContactSocial /> */}
         </div>
       </div>
     );

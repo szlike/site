@@ -1,26 +1,22 @@
 import React from 'react'
 import Battery1 from "./1.png"
 import Battery2 from "./2.png"
-import Battery3 from "./3.png"
-import Battery4 from "./4.png"
+// import Battery4 from "./4.png"
 import Battery5 from "./5.png"
 import Battery6 from "./6.png"
 import Battery7 from "./7.png"
 import Battery8 from "./8.png"
 import Battery9 from "./9.png"
-import Battery10 from "./10.png"
 
 export const Images = [
     Battery1,
     Battery2,
-    Battery3,
-    Battery4,
+    // Battery4,
     Battery5,
     Battery6,
     Battery7,
     Battery8,
-    Battery9,
-    Battery10
+    Battery9
 ]
 export const HtmlContent =() => (
     <div>

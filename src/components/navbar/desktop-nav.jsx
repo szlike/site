@@ -11,7 +11,10 @@ const content = {
   NavbarContent: NavBarContent
 }
 const desktopNav = (props) => (
-  <nav className={`Navbar ${!props.userIsScrolled ? "extraLargeNavbar" : ""}`}>
+  <nav className={`Navbar 
+  ${!props.userIsScrolled ? "extraLargeNavbar" : ""}
+  ${props.isMobileMenuOpen ? "hide" : "show"}
+  `}>
     <div className="wrapper flex-s-between">
       <div>
         <Link to="hero" spy={true} smooth={true} offset={0} duration={500}>
@@ -24,12 +27,12 @@ const desktopNav = (props) => (
       <div className="desktop__menu">
         <ul className="flex-s-between">
           <li>
-            <Link class={NavBarContent.menuItem1} activeClass="active-link" to="portfolio" spy={true} smooth={true} offset={-70} duration={500}>
+            <Link class={NavBarContent.menuItem1} activeClass="active-link" to="product" spy={true} smooth={true} offset={-70} duration={500}>
             { content.NavbarContent.product }
             </Link>
           </li>
           <li>
-            <Link activeClass="active-link" to="blog" spy={true} smooth={true} offset={-70} duration={500}>
+            <Link activeClass="active-link" to="about" spy={true} smooth={true} offset={-70} duration={500}>
               { content.NavbarContent.about}
             </Link>
           </li>

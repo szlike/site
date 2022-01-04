@@ -9,6 +9,10 @@
     width: inherit;
 }
 
+.modal-backdrop.show {
+    width: 100%;
+}
+
 .each-slide > div {
     display: flex;
     align-items: center;

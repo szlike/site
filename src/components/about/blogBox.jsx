@@ -6,9 +6,9 @@ const blog = (props) => (
     <div className="blog__box">
       <div className="blog__image">
         <img src={props.article.image} alt="blog story" />
-        <div className="blog__hover flex-center">
+        {/* <div className="blog__hover flex-center">
           <h4 className="font30 weight800">READ MORE</h4>
-        </div>
+        </div> */}
       </div>
       <div className="blog__info">
         <h4 className="font15 weight800">{props.article.title}</h4>

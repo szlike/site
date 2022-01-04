@@ -1,6 +1,6 @@
   @import '../../../style/App.scss';
   
-  .portfolio__box {
+  .product__box {
     position: relative;
     max-width: 370px;
     margin: 15px auto;
@@ -11,7 +11,7 @@
       height: auto;
     }
 
-    .portfolio__hover-info {
+    .product__hover-info {
       background-color: rgba($main-color, 0.8);
       width: 100%;
       height: 100%;
@@ -25,7 +25,7 @@
         text-transform: uppercase;
       }
     }
-    .portfolio__hover-info:hover, .portfolio__hover-info.no-hover {
+    .product__hover-info:hover, .product__hover-info.no-hover {
       opacity: 1;
     }
   }

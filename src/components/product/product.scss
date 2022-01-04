@@ -1,9 +1,9 @@
 @import '../../style/App.scss';
 
-#portfolio {
+#product {
   padding: 20px 0 40px 0;
 
-  .portfolio__nav {
+  .product__nav {
     ul {
       display: flex;
       li {
@@ -16,11 +16,11 @@
         background-color: $main-color;
       }
     }
-    .portfolio__nav-active {
+    .product__nav-active {
       background-color: $main-color;
     }
   }
-  .portfolio__filter {
+  .product__filter {
     display: flex;
     justify-content: flex-end;
     cursor: pointer;
@@ -35,7 +35,7 @@
       padding-right: 10px;
     }
 
-    .portfolio__filter-menu {
+    .product__filter-menu {
       background-color: $light-color;
       position: absolute;
       top: 40px;
@@ -75,13 +75,13 @@
 }
 
 @media screen and (max-width: 767px) {
-  #portfolio {
-    .portfolio__nav {
+  #product {
+    .product__nav {
       ul {
         justify-content: center;
       }
     }
-    .portfolio__filter {
+    .product__filter {
       justify-content: center;
       max-width: 200px;
       margin: 30px auto;
@@ -92,12 +92,14 @@
 }
 
 @media screen and (max-width: 400px) {
-  #portfolio {
-    .portfolio__nav {
+  #product {
+    .product__nav {
       ul {
         li {
           padding: 5px 5px;
           margin-right: 5px;
+          text-align: center;
+          overflow: hidden;
         }
 
       }

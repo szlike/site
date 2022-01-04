@@ -4,14 +4,14 @@ import Swiper from "react-id-swiper";
 import "./about.scss";
 import "swiper/css/swiper.css";
 // Assets
-import Preview01 from "../../assets/blog/story01/preview.png";
-import Preview02 from "../../assets/blog/story02/preview.png";
-import Preview03 from "../../assets/blog/story03/preview.png";
-import Preview04 from "../../assets/blog/story04/preview.png";
-import Preview05 from "../../assets/blog/story05/preview.png";
-import Preview06 from "../../assets/blog/story06/preview.png";
+import Customercare from "../../assets/blog/story01/customer-care.png";
+import TechnicalSupp from "../../assets/blog/story02/technical-support.png";
+import Supplychain from "../../assets/blog/story03/supply-chain.png";
+// import Preview04 from "../../assets/blog/story04/preview.png";
+// import Preview05 from "../../assets/blog/story05/preview.png";
+// import Preview06 from "../../assets/blog/story06/preview.png";
 // Components
-import Title from "../ui-components/title/title";
+import { Row, Col } from "react-flexbox-grid"
 import BlogBox from "./blogBox";
 
 class Blog extends React.Component {
@@ -19,47 +19,44 @@ class Blog extends React.Component {
     // LIST ARRAY OF BLOG STORIES
     stories: [
       {
-        image: Preview01,
+        image: Customercare,
         id: "1",
-        title: "SUPER BLOG ARTICLE!",
-        description: "Lorem ipsum dolor sit amet, consectetur undo thes tabore et dolore magna aliqua.",
-        date: "21 April 2020",
+        title: "CUSTOMER CARE",
+        description: "Live phone and email service and support available Monday–Friday, 8:30 am–5:30 pm EST. Here to help our clients at every step of the wholesale buying process.",
       },
       {
-        image: Preview02,
+        image: TechnicalSupp,
         id: "2",
-        title: "AWESOME ARTICLE!",
-        description: "Lorem ipsum dolor undo thes tabore et dolore magna aliqua.",
-        date: "27 April 2020",
+        title: "TECHNICAL SUPPORT",
+        description: "Ensuring your success with professional engineering and design support. Dedicated to enhancing your product offering through hardware customizations, branding, and more."
       },
       {
-        image: Preview03,
+        image: Supplychain,
         id: "3",
-        title: "SUPER TITLE!",
-        description: "Lorem tabore et dolore magna aliqua ipsum dolor undo thes.",
-        date: "03 May 2020",
-      },
-      {
-        image: Preview04,
-        id: "4",
-        title: "BLOG TITLE!",
-        description: "Lorem tabore et dolore magna aliqua ipsum dolor undo thes.",
-        date: "15 May 2020",
-      },
-      {
-        image: Preview05,
-        id: "5",
-        title: "BLOG ARTICLE!",
-        description: "Lorem tabore et dolore magna aliqua ipsum dolor undo thes.",
-        date: "20 May 2020",
-      },
-      {
-        image: Preview06,
-        id: "6",
-        title: "AWESOME TITLE!",
-        description: "Lorem tabore et dolore magna aliqua ipsum dolor undo thes.",
-        date: "23 May 2020",
-      },
+        title: "SMART SUPPLY CHAIN",
+        description: "Meticulous end-to-end supply chain management from production, shipping, customs, to delivery."
+      }
+      // {
+      //   image: Preview04,
+      //   id: "4",
+      //   title: "BLOG TITLE!",
+      //   description: "Lorem tabore et dolore magna aliqua ipsum dolor undo thes.",
+      //   date: "15 May 2020",
+      // },
+      // {
+      //   image: Preview05,
+      //   id: "5",
+      //   title: "BLOG ARTICLE!",
+      //   description: "Lorem tabore et dolore magna aliqua ipsum dolor undo thes.",
+      //   date: "20 May 2020",
+      // },
+      // {
+      //   image: Preview06,
+      //   id: "6",
+      //   title: "AWESOME TITLE!",
+      //   description: "Lorem tabore et dolore magna aliqua ipsum dolor undo thes.",
+      //   date: "23 May 2020",
+      // },
     ],
   };
 
@@ -103,20 +100,29 @@ class Blog extends React.Component {
       },
     };
 
+
+
     return (
-      <div className="blog" id="blog">
+      <div className="about" id="about">
         <div className="wrapper">
-          <Title title="About CannValue" />
+          <Row>
+            <Col className="big__title">
+              <h2 className="weight800 font40 padding40">About Us
+                {/* <span className="cann-blue"> Cann</span>
+                <span className="cann-yellow">Value</span> */}
+              </h2>    
+            </Col>
+          </Row>
           <p className="font20">
-          Headquartered in Canada, backed by top-tier vaping device manufacturers, CannValue serves the cannabis industry by providing wholesale high-end vaporizer cartridges, power supplies and disposables to licensed producers. 
+          Headquartered in Canada, backed by top-tier vaping device manufacturers, CannValue serves the cannabis industry by providing wholesale high-end vaporizer cartridges, power supplies, disposables and dry herb vaporizers to licensed producers. 
           </p>
           <br />
           <p className="font20">
-          CannValue sets and adheres to the highest standards of quality and reliability. Our team is composed of local talents and professionals with many years of industry experience that focuses in cannabis, tobacco, and pharmaceuticals.
+          CannValue sets and adheres to the highest standards of quality and reliability. Our team is composed of local talents and professionals with many years of industry experience that focuses in cannabis, tobacco, and pharmaceuticals. 
           </p>
-          {/* <div className="padding30">
+          <div className="padding30">
             <Swiper {...params}>{storiesRender}</Swiper>
-          </div> */}
+          </div>
         </div>
       </div>
     );
