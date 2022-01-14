@@ -5,6 +5,7 @@ import "./team.scss";
 import TeamBox from './teamBox';
 import TeamInfo from "./teamInfo";
 import Title from "../ui-components/title/title";
+<<<<<<< Updated upstream
 // Assets
 import Person01 from "../../assets/about/bing.jpg"
 import Person02 from "../../assets/about/steward.jpg"
@@ -90,6 +91,35 @@ const about = () => (
       </Row>
     </div>
   </div>
+=======
+import $ from 'jquery'; 
+<script type="text/javascript" 
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+</script>
+
+$(document).ready(function () {
+
+  $('#ajaxBtn').click(function(){
+
+    $.get('https://random-data-api.com/api/cannabis/random_cannabis?size=10', function (data, textStatus, jqXHR) {
+      $('p').append(data);
+    });
+  });
+});
+
+
+const about = () => (
+<div id="about">
+<div name='random-cannabis'>
+<ul> https://random-data-api.com/api/cannabis/random_cannabis?size=10
+</ul>
+<input type="button" id="ajaxBtn" value="Send GET request" />
+
+<input type='text'/> //size=100
+<button>get specific number cannabis</button>
+</div>
+</div>
+>>>>>>> Stashed changes
 );
 
 export default about;
