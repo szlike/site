@@ -23,6 +23,9 @@ const banner = () => (
 			<div class="carousell-img" data-src={BannerImage1} />
 			<div class="carousell-img" data-src={BannerImage2} />
 			<div class="carousell-img" data-src={BannerImage3} />
+			<div>
+			<iframe width="1000" height="460"src="https://www.youtube.com/embed/BNQFr2FcJ3k"></iframe>
+			</div>
 		</AutoplaySlider>
 )
 

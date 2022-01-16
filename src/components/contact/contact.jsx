@@ -7,8 +7,8 @@ import ContactInfo from './contactInfo/contactInfo';
 import ContactSocial from './contactInfo/contactSocial';
 import Modal from '../contact-modal/Modal';
 
-import ContactBackground from '../../assets/contact/bg.png';
-
+import ContactBackground from '../../assets/contact/Email_Fed.png';
+//change img
 class Contact extends React.Component {
   constructor(props) {
     super(props);
@@ -114,8 +114,12 @@ class Contact extends React.Component {
         {modalRender}
         <div className="wrapper">
           <Title title="CONTACT US." />
-          <p className="font12">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt<br></br>ut labore et dolore magna aliqua.
+          <p className="font14">
+            If have any questions about our products, please consult the CannValue.ca/questions website 
+            <br></br> or call us at one of the telephone numbers below:
+            <br></br> +00 123 - 456 -78 (24/7)
+            <br></br> +00 987 - 654 -32 (24/7)
+            <br></br> or send us a message through the window.
           </p>
 
           <Row className="padding40">

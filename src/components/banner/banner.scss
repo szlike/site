@@ -12,8 +12,11 @@
     }
 
     .awssld__bullets {
+        background-color: $cann-yellow-color;
         z-index: 999;
-        bottom: 10px;
+        bottom: -1px;
+        position: relative;
     }
 }
+
 
